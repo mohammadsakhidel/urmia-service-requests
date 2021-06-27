@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Masters/Panel.master" AutoEventWireup="true" CodeFile="MayorPanel.master.cs" Inherits="Views_Masters_MayorPanel" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cph_panel_header" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_panel_menu" Runat="Server">
+
+    <div class="panel_static_menu_item panel_static_menu_suggestions"></div>
+    <div class="panel_static_sub_menu">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink9" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/OutOfDateSuggestions.aspx">پیشنهادات تاریخ گذشته</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel_static_menu_item panel_static_menu_polls"></div>
+    <div class="panel_static_sub_menu">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink7" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/ActivePoll.aspx">نظرسنجی فعال</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink8" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/Polls.aspx">لیست نظرسنجی ها</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel_static_menu_item panel_static_menu_competitions"></div>
+    <div class="panel_static_sub_menu">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/ActiveCompetition.aspx">مسابقه فعال</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td> 
+                    <asp:HyperLink ID="HyperLink3" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/Competitions.aspx">لیست مسابقات</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel_static_menu_item panel_static_menu_reports"></div>
+    <div class="panel_static_sub_menu">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink10" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/ReportForMayer.aspx">عملکرد ماهانه سازمان ها</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/ReportOfRecievedMessages.aspx">گزارش پیامک های دریافتی</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink4" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/ReportOfSuggestions.aspx">گزارش پیشنهادات و انتقادات</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink5" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/Charts.aspx">گزارشات نموداری</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel_static_menu_item panel_static_menu_settings"></div>
+    <div class="panel_static_sub_menu">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink6" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Mayor/AcountSettings.aspx">تنظیمات حساب کاربری</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_panel_main" Runat="Server">
+
+    <div class="relative">
+        <div class="welcome">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="welcome_left"></div>
+                    </td>
+                    <td class="welcome_back">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <a href='<%= MyHelper.Url("~/Views/Mayor/Panel.aspx") %>' class="welcome_text"><%= "کاربر: " + "دفتر شهردار" %></a>
+                                </td>
+                                <td class="td_pad1">
+                                    <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="logout_button" style="margin-right : 5px;" LogoutText="" OnLoggedOut="LoginStatus2_LoggedOut" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <asp:ContentPlaceHolder ID="cph_mayorpanel_main" runat="server"></asp:ContentPlaceHolder>
+    </div>
+
+</asp:Content>
+

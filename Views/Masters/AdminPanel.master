@@ -1,0 +1,255 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Masters/Panel.master" AutoEventWireup="true" CodeFile="AdminPanel.master.cs" Inherits="Views_Masters_AdminPanel" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cph_panel_header" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_panel_menu" Runat="Server">
+    
+    <script type="text/javascript" src='<%= MyHelper.Url("~/Scripts/Admins/AdminPanel.js") %>'></script>
+
+    <a class="panel_menu_item panel_menu_users"></a>
+    <div class="panel_sub_menu hide">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Organizations.aspx") %>'>سازمان ها</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Operators.aspx") %>'>اپراتورهای شبکه</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Supervisors.aspx") %>'>ناظرین شبکه</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Citizens.aspx") %>'>شهرواندان</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <a class="panel_menu_item panel_menu_suggestions"></a>
+    <div class="panel_sub_menu hide">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/RoutedSuggestions.aspx") %>'>صندوق سازمان</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/NotRoutedSuggestions.aspx") %>'>صندوق پیشنهادات هدایت نشده</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/SuggestionsTrash.aspx") %>'>بازیافت</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/PersuitSuggestion.aspx") %>'>رهگیری پیشنهادات</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <a class="panel_menu_item panel_menu_polling"></a>
+    <div class="panel_sub_menu hide">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/ActivePoll.aspx") %>'>نظرسنجی فعال</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Polls.aspx") %>'>لیست نظرسنجی ها</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <a class="panel_menu_item panel_menu_competition"></a>
+    <div class="panel_sub_menu hide">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/ActiveCompetition.aspx") %>'>مسابقه فعال</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Competitions.aspx") %>'>لیست مسابقه ها</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <a class="panel_menu_item panel_menu_send"></a>
+    <div class="panel_sub_menu hide">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Contacts.aspx") %>'>دفترچه تلفن</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Patterns.aspx") %>'>الگوهای آماده</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/SendSMS.aspx") %>'>ارسال پیامک جدید</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/SentBox.aspx") %>'>پیامک های ارسال شده</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <a class="panel_menu_item panel_menu_reports"></a>
+    <div class="panel_sub_menu hide">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/ReportingRecievedMessages.aspx") %>'>پیامک های دریافتی</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/ReportingSuggestions.aspx") %>'>پیشنهادات و انتقادات</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Charts.aspx") %>'>گزارشات نموداری</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <a class="panel_menu_item panel_menu_services"></a>
+    <div class="panel_sub_menu hide">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Monaghesat.aspx") %>'>مناقصات</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <a class="panel_sub_menu_a" href='<%= MyHelper.Url("~/Views/Admins/Mozaiedat.aspx") %>'>مزایده ها</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <a class="panel_menu_item panel_menu_settings" href='<%= MyHelper.Url("~/Views/Admins/Settings.aspx") %>'></a>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_panel_main" Runat="Server">
+    <div class="relative">
+        <div class="welcome">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="welcome_left"></div>
+                    </td>
+                    <td class="welcome_back">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <a href='<%= MyHelper.Url("~/Views/Admins/Panel.aspx") %>' class="welcome_text">کاربر: مدیر سیستم</a>
+                                </td>
+                                <td class="td_pad1">
+                                    <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="logout_button" 
+                                        style="margin-right : 5px;" LogoutText="" 
+                                        onloggedout="LoginStatus2_LoggedOut" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <asp:ContentPlaceHolder ID="cph_adminpanel_main" runat="server"></asp:ContentPlaceHolder>
+    </div>
+</asp:Content>
+

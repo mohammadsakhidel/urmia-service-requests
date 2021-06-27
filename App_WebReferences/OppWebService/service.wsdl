@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://opp.co.ir/uws/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://opp.co.ir/ws/smsws" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://microsoft.com/wsdl/types/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://opp.co.ir/uws/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://opp.co.ir/uws/">
+      <s:import namespace="http://opp.co.ir/ws/smsws" />
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numbers" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numbers" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSWithStatusResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithStatus2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numbers" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSWithStatus2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSWithStatus2Result" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numbers" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMS2Result" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCredit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCreditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCreditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecieveSmsAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecieveSmsAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecieveSmsAllResult" type="tns:ArrayOfReciveSms" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReciveSms">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReciveSms" nillable="true" type="s1:ReciveSms" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecieveSmsByTel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="internettelno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecieveSmsByTelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecieveSmsByTelResult" type="tns:ArrayOfReciveSms" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://opp.co.ir/ws/smsws">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:complexType name="ReciveSms">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BLBaseOfReciveSms">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ReciveSmsID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReciveID" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="FromTelNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ToTelNo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Readed" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SmsDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s2:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BLBaseOfReciveSms" abstract="true" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMSWithStatus" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSWithStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithStatus2SoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMSWithStatus2" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSWithStatus2SoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSWithStatus2Response" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS2SoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS2" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS2SoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMS2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCredit" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCreditResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecieveSmsAllSoapIn">
+    <wsdl:part name="parameters" element="tns:RecieveSmsAll" />
+  </wsdl:message>
+  <wsdl:message name="RecieveSmsAllSoapOut">
+    <wsdl:part name="parameters" element="tns:RecieveSmsAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecieveSmsByTelSoapIn">
+    <wsdl:part name="parameters" element="tns:RecieveSmsByTel" />
+  </wsdl:message>
+  <wsdl:message name="RecieveSmsByTelSoapOut">
+    <wsdl:part name="parameters" element="tns:RecieveSmsByTelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithStatus">
+      <wsdl:input message="tns:SendSMSWithStatusSoapIn" />
+      <wsdl:output message="tns:SendSMSWithStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithStatus2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Use for PHP methods</wsdl:documentation>
+      <wsdl:input message="tns:SendSMSWithStatus2SoapIn" />
+      <wsdl:output message="tns:SendSMSWithStatus2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Use for PHP methods</wsdl:documentation>
+      <wsdl:input message="tns:SendSMS2SoapIn" />
+      <wsdl:output message="tns:SendSMS2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCredit">
+      <wsdl:input message="tns:GetCreditSoapIn" />
+      <wsdl:output message="tns:GetCreditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecieveSmsAll">
+      <wsdl:input message="tns:RecieveSmsAllSoapIn" />
+      <wsdl:output message="tns:RecieveSmsAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecieveSmsByTel">
+      <wsdl:input message="tns:RecieveSmsByTelSoapIn" />
+      <wsdl:output message="tns:RecieveSmsByTelSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://opp.co.ir/uws/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithStatus">
+      <soap:operation soapAction="http://opp.co.ir/uws/SendSMSWithStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithStatus2">
+      <soap:operation soapAction="http://opp.co.ir/uws/SendSMSWithStatus2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS2">
+      <soap:operation soapAction="http://opp.co.ir/uws/SendSMS2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCredit">
+      <soap:operation soapAction="http://opp.co.ir/uws/GetCredit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecieveSmsAll">
+      <soap:operation soapAction="http://opp.co.ir/uws/RecieveSmsAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecieveSmsByTel">
+      <soap:operation soapAction="http://opp.co.ir/uws/RecieveSmsByTel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://opp.co.ir/uws/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithStatus">
+      <soap12:operation soapAction="http://opp.co.ir/uws/SendSMSWithStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSWithStatus2">
+      <soap12:operation soapAction="http://opp.co.ir/uws/SendSMSWithStatus2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS2">
+      <soap12:operation soapAction="http://opp.co.ir/uws/SendSMS2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCredit">
+      <soap12:operation soapAction="http://opp.co.ir/uws/GetCredit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecieveSmsAll">
+      <soap12:operation soapAction="http://opp.co.ir/uws/RecieveSmsAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecieveSmsByTel">
+      <soap12:operation soapAction="http://opp.co.ir/uws/RecieveSmsByTel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://opp.co.ir/uws/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://opp.co.ir/uws/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

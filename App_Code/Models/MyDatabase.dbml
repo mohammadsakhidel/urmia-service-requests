@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ShahrdariSms" Class="MyDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local);Initial Catalog=ShahrdariSms;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ASPNETDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.OrganizationKeywords" Member="OrganizationKeywords">
+    <Type Name="OrganizationKeyword">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrganizationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Organization_OrganizationKeyword" Member="Organization" ThisKey="OrganizationID" OtherKey="ID" Type="Organization" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Operators" Member="Operators">
+    <Type Name="Operator">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Operator_OperatorAccessRule" Member="OperatorAccessRule" ThisKey="ID" OtherKey="OperatorID" Type="OperatorAccessRule" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Supervisors" Member="Supervisors">
+    <Type Name="Supervisor">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PollOptions" Member="PollOptions">
+    <Type Name="PollOption">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PollID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Identifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Poll_PollOption" Member="Poll" ThisKey="PollID" OtherKey="ID" Type="Poll" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Polls" Member="Polls">
+    <Type Name="Poll">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DaysOfActivity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Poll_PollOption" Member="PollOptions" ThisKey="ID" OtherKey="PollID" Type="PollOption" />
+      <Association Name="Poll_PollAnswer" Member="PollAnswers" ThisKey="ID" OtherKey="PollID" Type="PollAnswer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompetitionOptions" Member="CompetitionOptions">
+    <Type Name="CompetitionOption">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompetitionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Identifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Competition_CompetitionOption" Member="Competition" ThisKey="CompetitionID" OtherKey="ID" Type="Competition" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Competitions" Member="Competitions">
+    <Type Name="Competition">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SmsText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DaysOfActivity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Competition_CompetitionOption" Member="CompetitionOptions" ThisKey="ID" OtherKey="CompetitionID" Type="CompetitionOption" />
+      <Association Name="Competition_CompetitionAnswer" Member="CompetitionAnswers" ThisKey="ID" OtherKey="CompetitionID" Type="CompetitionAnswer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RecievingErrors" Member="RecievingErrors">
+    <Type Name="RecievingError">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateOf" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RecievedMessages" Member="RecievedMessages">
+    <Type Name="RecievedMessage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CitizenID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfRecieve" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcessResult" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="RecievedMessage_PollAnswer" Member="PollAnswers" ThisKey="ID" OtherKey="RecievedMessageID" Type="PollAnswer" />
+      <Association Name="RecievedMessage_CompetitionAnswer" Member="CompetitionAnswers" ThisKey="ID" OtherKey="RecievedMessageID" Type="CompetitionAnswer" />
+      <Association Name="RecievedMessage_Suggestion" Member="Suggestions" ThisKey="ID" OtherKey="RecievedMessageID" Type="Suggestion" />
+      <Association Name="Citizen_RecievedMessage" Member="Citizen" ThisKey="CitizenID" OtherKey="ID" Type="Citizen" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PollAnswers" Member="PollAnswers">
+    <Type Name="PollAnswer">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PollID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RecievedMessageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SelectedOption" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Poll_PollAnswer" Member="Poll" ThisKey="PollID" OtherKey="ID" Type="Poll" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="RecievedMessage_PollAnswer" Member="RecievedMessage" ThisKey="RecievedMessageID" OtherKey="ID" Type="RecievedMessage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompetitionAnswer" Member="CompetitionAnswers">
+    <Type Name="CompetitionAnswer">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompetitionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RecievedMessageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Association Name="Competition_CompetitionAnswer" Member="Competition" ThisKey="CompetitionID" OtherKey="ID" Type="Competition" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="RecievedMessage_CompetitionAnswer" Member="RecievedMessage" ThisKey="RecievedMessageID" OtherKey="ID" Type="RecievedMessage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SuggestionRoutings" Member="SuggestionRoutings">
+    <Type Name="SuggestionRouting">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SuggestionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrganizationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfRoute" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfAction" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Explanation" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Visible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Suggestion_SuggestionRouting" Member="Suggestion" ThisKey="SuggestionID" OtherKey="ID" Type="Suggestion" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Organization_SuggestionRouting" Member="Organization" ThisKey="OrganizationID" OtherKey="ID" Type="Organization" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Suggestions" Member="Suggestions">
+    <Type Name="Suggestion">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RecievedMessageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PersuitCode" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Visible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Suggestion_SuggestionRouting" Member="SuggestionRoutings" ThisKey="ID" OtherKey="SuggestionID" Type="SuggestionRouting" />
+      <Association Name="RecievedMessage_Suggestion" Member="RecievedMessage" ThisKey="RecievedMessageID" OtherKey="ID" Type="RecievedMessage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Patterns" Member="Patterns">
+    <Type Name="Pattern">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SentMessageRecievers" Member="SentMessageRecievers">
+    <Type Name="SentMessageReciever">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SentMessageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MobNumber" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SentMessage_SentMessageReciever" Member="SentMessage" ThisKey="SentMessageID" OtherKey="ID" Type="SentMessage" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SentMessages" Member="SentMessages">
+    <Type Name="SentMessage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfSend" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="SentMessage_SentMessageReciever" Member="SentMessageRecievers" ThisKey="ID" OtherKey="SentMessageID" Type="SentMessageReciever" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InteractiveSentMessages" Member="InteractiveSentMessages">
+    <Type Name="InteractiveSentMessage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfSend" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MobNumber" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Citizens" Member="Citizens">
+    <Type Name="Citizen">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MobNumber" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BornYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Job" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Zone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateOfAdd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Citizen_RecievedMessage" Member="RecievedMessages" ThisKey="ID" OtherKey="CitizenID" Type="RecievedMessage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fields" Member="Fields">
+    <Type Name="Field">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContactBookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Identifier" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Field_FieldValue" Member="FieldValues" ThisKey="ID" OtherKey="FieldID" Type="FieldValue" />
+      <Association Name="ContactBook_Field" Member="ContactBook" ThisKey="ContactBookID" OtherKey="ID" Type="ContactBook" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContactBooks" Member="ContactBooks">
+    <Type Name="ContactBook">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ContactBook_Field" Member="Fields" ThisKey="ID" OtherKey="ContactBookID" Type="Field" />
+      <Association Name="ContactBook_Contact" Member="Contacts" ThisKey="ID" OtherKey="BookID" Type="Contact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contacts" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MobNumber" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfAdd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Contact_FieldValue" Member="FieldValues" ThisKey="ID" OtherKey="ContactID" Type="FieldValue" />
+      <Association Name="ContactBook_Contact" Member="ContactBook" ThisKey="BookID" OtherKey="ID" Type="ContactBook" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FieldValues" Member="FieldValues">
+    <Type Name="FieldValue">
+      <Column Name="ContactID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FieldID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Contact_FieldValue" Member="Contact" ThisKey="ContactID" OtherKey="ID" Type="Contact" IsForeignKey="true" />
+      <Association Name="Field_FieldValue" Member="Field" ThisKey="FieldID" OtherKey="ID" Type="Field" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Monaghesehs" Member="Monaghesehs">
+    <Type Name="Monagheseh">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Shomare" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mozaiedehs" Member="Mozaiedehs">
+    <Type Name="Mozaiedeh">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Shomare" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ResponseSettings" Member="ResponseSettings">
+    <Type Name="ResponseSetting">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PersuitCodeResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PersuitCodeText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CorrectPollAnswerResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CorrectPollAnswerText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectPollOptionSelectedResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectPollOptionSelectedText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="NoActivePollExistResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NoActivePollExistText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CorrectCompetitionAnswerResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CorrectCompetitionAnswerText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectCompetitionOptionSelectedResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectCompetitionOptionSelectedText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectFormatResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectFormatText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="NoActiveCompetitionExistResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NoActiveCompetitionExistText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectPersuitCodeResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectPersuitCodeText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="MonaghesatResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MonaghesatPattern" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="MozaiedatResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MozaiedatPattern" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectServiceCodeResponse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IncorrectServiceCodeText" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperatorAccessRules" Member="OperatorAccessRules">
+    <Type Name="OperatorAccessRule">
+      <Column Name="OperatorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Users" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Suggestions" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Polls" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Competitions" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SendSms" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Reports" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Services" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Settings" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Operator_OperatorAccessRule" Member="Operator" ThisKey="OperatorID" OtherKey="ID" Type="Operator" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organizations" Member="Organizations">
+    <Type Name="Organization">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ViewUnroutedSuggestions" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CellPhones" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Organization_OrganizationKeyword" Member="OrganizationKeywords" ThisKey="ID" OtherKey="OrganizationID" Type="OrganizationKeyword" />
+      <Association Name="Organization_SuggestionRouting" Member="SuggestionRoutings" ThisKey="ID" OtherKey="OrganizationID" Type="SuggestionRouting" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InformSettings" Member="InformSettings">
+    <Type Name="InformSetting">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InformRouting" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InformVerifying" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InformRejection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InformOrganizationOperators" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

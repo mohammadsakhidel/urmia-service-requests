@@ -1,0 +1,298 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Masters/Panel.master" AutoEventWireup="true" CodeFile="OperatorPanel.master.cs" Inherits="Views_Masters_OperatorPanel" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cph_panel_header" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_panel_menu" Runat="Server">
+
+    <% if (Permissions.UsersViewPermission)
+       { %>
+
+        <div class="panel_static_menu_item panel_static_menu_users"></div>
+        <div class="panel_static_sub_menu">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink4" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Operators/Organizations.aspx">سازمان ها</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink5" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Operators/Operators.aspx">اپراتورهای شبکه</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink6" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Operators/Supervisors.aspx">ناظرین شبکه</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink7" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Operators/Citizens.aspx">شهرواندان</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <% } %>
+
+    <% if (Permissions.SuggestionsViewPermission)
+       { %>
+
+        <div class="panel_static_menu_item panel_static_menu_suggestions"></div>
+        <div class="panel_static_sub_menu">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/RoutedSuggestions.aspx">صندوق سازمان</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink2" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/NotRoutedSuggestions.aspx">صندوق پیشنهادات هدایت نشده</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink3" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/PersuitSuggestion.aspx">رهگیری پیشنهادات</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <% } %>
+
+    <% if (Permissions.PollsViewPermission)
+       { %>
+
+        <div class="panel_static_menu_item panel_static_menu_polls"></div>
+        <div class="panel_static_sub_menu">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink8" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/ActivePoll.aspx">نظرسنجی فعال</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink9" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/Polls.aspx">لیست نظرسنجی ها</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <% } %>
+
+    <% if (Permissions.CompetitionsViewPermission)
+       { %>
+
+        <div class="panel_static_menu_item panel_static_menu_competitions"></div>
+        <div class="panel_static_sub_menu">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink10" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/ActiveCompetition.aspx">مسابقه فعال</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink11" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/Competitions.aspx">لیست مسابقه ها</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <% } %>
+
+    <% if (Permissions.SendSmsViewPermission)
+       { %>
+
+        <div class="panel_static_menu_item panel_static_menu_sendsms"></div>
+        <div class="panel_static_sub_menu">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink12" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/Contacts.aspx">دفترچه تلفن</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink13" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/Patterns.aspx">الگوهای آماده</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink14" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/SendSMS.aspx">ارسال پیامک جدید</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink15" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/SentBox.aspx">پیامک های ارسال شده</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <% } %>
+
+    <% if (Permissions.ReportsViewPermission)
+       { %>
+
+        <div class="panel_static_menu_item panel_static_menu_reports"></div>
+        <div class="panel_static_sub_menu">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink16" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/ReportingRecievedMessages.aspx">گزارش پیامک های دریافتی</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink17" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/ReportingSuggestions.aspx">گزارش پیشنهادات و انتقادات</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink18" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/Charts.aspx">گزارشات نموداری</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <% } %>
+
+    <% if (Permissions.ServicesViewPermission)
+       { %>
+
+        <div class="panel_static_menu_item panel_static_menu_services"></div>
+        <div class="panel_static_sub_menu">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink21" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/Monaghesat.aspx">مناقصات</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink22" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/Mozaiedat.aspx">مزایده ها</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <% } %>
+
+    <% if (Permissions.SettingsViewPermission)
+       { %>
+
+        <div class="panel_static_menu_item panel_static_menu_settings"></div>
+        <div class="panel_static_sub_menu">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink19" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/Settings.aspx">تنظیمات سیستم</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bullet_arrow_left"></div>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink20" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl = "~/Views/Operators/AcountSettings.aspx">تنظیمات حساب کاربری</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <% } %>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_panel_main" Runat="Server">
+    <div class="relative">
+        <div class="welcome">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="welcome_left"></div>
+                    </td>
+                    <td class="welcome_back">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <a href='<%= MyHelper.Url("~/Views/Operators/Panel.aspx") %>' class="welcome_text"><%= "کاربر: " + "اپراتور شبکه" %></a>
+                                </td>
+                                <td class="td_pad1">
+                                    <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="logout_button" style="margin-right : 5px;" LogoutText="" OnLoggedOut="LoginStatus2_LoggedOut" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <asp:ContentPlaceHolder ID="cph_operatorpanel_main" runat="server"></asp:ContentPlaceHolder>
+    </div>
+</asp:Content>
+

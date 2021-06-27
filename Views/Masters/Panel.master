@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Masters/Main.master" AutoEventWireup="true" CodeFile="Panel.master.cs" Inherits="Views_Masters_Panel" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cph_main_header" Runat="Server">
+    <asp:ContentPlaceHolder ID="cph_panel_header" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_main" Runat="Server">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td valign="top" style="width : 180px;" class="panel_menu_container">
+
+                <asp:ContentPlaceHolder ID="cph_panel_menu" runat="server"></asp:ContentPlaceHolder>
+
+            </td>
+
+            <td valign="top">
+
+                <div class="panel_content">
+
+                    <asp:ContentPlaceHolder ID="cph_panel_main" runat="server"></asp:ContentPlaceHolder>
+
+                </div>
+
+            </td>
+        </tr>
+    </table>
+    
+</asp:Content>
+

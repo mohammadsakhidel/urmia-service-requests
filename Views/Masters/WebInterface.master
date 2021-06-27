@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="WebInterface.master.cs" Inherits="Views_Masters_WebInterface" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>سامانه 137 شهرداری ارومیه</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Content/Themes/Default/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Themes/Default/home.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container">
+        <div class="home-menu-xs visible-xs">
+            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Login.aspx">ورود</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/About.aspx">درباره سامانه</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Tracking.aspx">پیگیری درخواست</asp:HyperLink>
+        </div>
+        <div class="home-header">
+            <a href="/">
+                <h1>سامانه 137 شهرداری ارومیه</h1><!--١٣٧-->
+            </a>
+            <div class="home-menu hidden-xs">
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">ورود</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/About.aspx">درباره سامانه</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Tracking.aspx">پیگیری درخواست</asp:HyperLink>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+        <asp:ContentPlaceHolder ID="content" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </div>
+</body>
+</html>

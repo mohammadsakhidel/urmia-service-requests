@@ -1,0 +1,97 @@
+﻿@font-face {
+    font-family: 'ISans';
+    src: url("fonts/isans/isans.ttf") format("truetype"), url('fonts/isans/isans.eot?#') format('eot'), url('fonts/isans/isans.otf') format('opentype'), url('fonts/isans/isans.otf') format('woff'), url('fonts/isans/isans.svg') format('svg');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Koodak';
+    src: url("fonts/koodak/BKoodakBold.ttf") format("truetype"), url('fonts/koodak/BKoodakBold.eot?#') format('eot'), url('fonts/koodak/BKoodakBold.woff') format('woff');
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Koodak, 'Segoe UI', Tahoma;
+    font-size: 16px;
+    direction: rtl;
+}
+
+.home-header {
+    height: 95px;
+    background: #fff url('home-header.png') no-repeat right center;
+    border-bottom: solid 1px #dcddde;
+}
+
+    .home-header h1 {
+        float: right;
+        position: relative;
+        font-family: ISans;
+        font-weight: bold;
+        font-size: 20px;
+        margin: 38px 90px 0 0;
+        color: #007475;
+        white-space: nowrap;
+    }
+
+    .home-header .home-menu {
+        float: left;
+        margin: 10px 0 0 0;
+    }
+
+        .home-header .home-menu a {
+            float: left;
+            margin: 0 10px 0 0;
+        }
+
+.home-menu-xs {
+    padding: 15px 0 10px 0;
+    display: none;
+    border-bottom: solid 1px #dcddde;
+}
+
+.home-menu-xs a {
+    margin: 0 0 0 10px;
+    color: #009597;
+}
+
+.home-col-title {
+    font-family: ISans;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.home-col-content {
+    text-align: justify;
+    line-height: 28px;
+    color: #585858;
+}
+
+.home-loading {
+    width: 16px;
+    height: 16px;
+    background: url('loading.gif') no-repeat;
+}
+
+.home-page-title > h2 {
+    font-family: ISans;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.home-page-title {
+    padding: 0 0 7px 0;
+}
+
+.home-page-content {
+    text-align: justify;
+    line-height: 28px;
+    color: #585858;
+    border-top: dashed 1px #dcddde;
+    padding: 10px 0 0 0;
+}
+
+    .home-page-content h3 {
+        font-size: 22px;
+    }

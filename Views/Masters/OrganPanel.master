@@ -1,0 +1,111 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Masters/Panel.master" AutoEventWireup="true" CodeFile="OrganPanel.master.cs" Inherits="Views_Masters_OrganPanel" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cph_panel_header" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_panel_menu" Runat="Server">
+
+    <div class="panel_static_menu_item panel_static_menu_suggestions"></div>
+    <div class="panel_static_sub_menu">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Organizations/PendingSuggestions.aspx">منتظر پاسخ</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Organizations/VerifiedSuggestions.aspx">رسیدگی شده</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink3" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Organizations/RejectedSuggestions.aspx">رد شده</asp:HyperLink>
+                </td>
+            </tr>
+            <% if (Models.Organization.CurrentUser.ViewUnroutedSuggestions)
+               {%>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink7" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Organizations/NotRoutedSuggestions.aspx">پیامک های هدایت نشده</asp:HyperLink>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+
+    <div class="panel_static_menu_item panel_static_menu_reports"></div>
+    <div class="panel_static_sub_menu">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink4" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Organizations/ReportOfSuggestions.aspx">گزارش پیشنهادات و انتقادات</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink5" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Organizations/Charts.aspx">گزارشات نموداری</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel_static_menu_item panel_static_menu_settings"></div>
+    <div class="panel_static_sub_menu">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="bullet_arrow_left"></div>
+                </td>
+                <td>
+                    <asp:HyperLink ID="HyperLink6" runat="server" CssClass="panel_static_sub_menu_a" NavigateUrl="~/Views/Organizations/AcountSettings.aspx">تنظیمات حساب کاربری</asp:HyperLink>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_panel_main" Runat="Server">
+    <div class="relative">
+        <div class="welcome">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="welcome_left"></div>
+                    </td>
+                    <td class="welcome_back">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <a href='<%= MyHelper.Url("~/Views/Organizations/Panel.aspx") %>' class="welcome_text"><%= "کاربر: " + "سازمان " + Models.Organization.CurrentUser.Name %></a>
+                                </td>
+                                <td class="td_pad1">
+                                    <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="logout_button" style="margin-right : 5px;" LogoutText="" OnLoggedOut="LoginStatus2_LoggedOut" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <asp:ContentPlaceHolder ID="cph_organpanel_main" runat="server"></asp:ContentPlaceHolder>
+    </div>
+</asp:Content>
+
